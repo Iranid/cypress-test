@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const {LOGIN} = require('./selectors/selector_login');
+const {LOGIN} = require('./selectors/login');
 
 
 describe('Tracking time in a Project', () => {
