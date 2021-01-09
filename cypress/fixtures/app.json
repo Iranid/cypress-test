@@ -1,0 +1,5 @@
+ {
+    "url": "http://qa.staging.timebillingapp.com/sessions/login",
+    "main_section_path":  "#dashboard",
+    "logged_cookie_name": "remember_user_token"
+}
