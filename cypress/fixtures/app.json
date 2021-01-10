@@ -1,9 +1,9 @@
  {
-    "url": "http://qa.staging.timebillingapp.com/sessions/login",
-    "main_section_path":  "#dashboard",
-    "logged_cookie_name": "remember_user_token",
-    "clients_section_path": "#clients",
-    "projects_section_path": "#projects",
-    "new_project_section": "#projects/new",
-    "calendar": "#calendar"
+  "login_url": "http://qa.staging.timebillingapp.com/sessions/login",
+  "logged_cookie_name": "remember_user_token",
+  "main_section_path":  "#dashboard",
+  "clients_section_path": "#clients",
+  "projects_section_path": "#projects",
+  "new_project_section_path": "#projects/new",
+  "calendar_section_path": "#calendar"
 }
