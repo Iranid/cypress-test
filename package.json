@@ -1,14 +1,25 @@
 {
-  "author": "Girma Nigusse <xgirma@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/e2e-boilerplate/cypress-es-modules-jest-expect/issues"
+  "name": "cypress-tests",
+  "version": "1.0.0",
+  "author": "Iranid Perez <iranidperez@gmail.com>",
+  "description": "Cypress end-to-end test for Lemontech QA environment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Iranid/cypress-test.git"
   },
+  "scripts": {
+    "clean:screenshots": "npx cypress/screenshots/*",
+    "clean:video": "npx rimraf cypress/videos/*",
+    "lint": "npx eslint --ext .js ./ --fix",
+    "open": "npx cypress open",
+    "test": "npx cypress run"
+  },
+  "license": "MIT",
   "dependencies": {
     "cypress": "^6.2.1",
     "cypress-jest-adapter": "0.1.1",
     "rimraf": "3.0.2"
   },
-  "description": "Cypress end-to-end test automation boilerplate. Using ES Modules, Jest and Expect.",
   "devDependencies": {
     "eslint": "7.17.0",
     "eslint-config-airbnb-base": "14.2.1",
@@ -21,30 +32,15 @@
     "prettier": "2.2.1",
     "pretty-quick": "3.1.0"
   },
-  "homepage": "https://github.com/e2e-boilerplate/cypress-es-modules-jest-expect#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged --allow-empty"
     }
   },
-  "license": "MIT",
   "lint-staged": {
     "*.{js}": [
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "name": "cypress-es-modules-jest-expect",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/e2e-boilerplate/cypress-es-modules-jest-expect.git"
-  },
-  "scripts": {
-    "clean:screenshots": "npx cypress/screenshots/*",
-    "clean:video": "npx rimraf cypress/videos/*",
-    "lint": "npx eslint --ext .js ./ --fix",
-    "open": "npx cypress open",
-    "test": "npx cypress run"
-  },
-  "version": "1.0.0"
+  }
 }
