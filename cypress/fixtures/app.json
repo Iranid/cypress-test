@@ -1,9 +1,17 @@
  {
   "login_url": "http://qa.staging.timebillingapp.com/sessions/login",
+  "logout_url": "http://qa.staging.timebillingapp.com/sessions/logout",
   "logged_cookie_name": "remember_user_token",
   "main_section_path":  "#dashboard",
   "clients_section_path": "#clients",
   "projects_section_path": "#projects",
   "new_project_section_path": "#projects/new",
-  "calendar_section_path": "#calendar"
+  "calendar_section_path": "#calendar",
+  "reports_section_path": "#reports",
+  "time_entry": {
+    "min_hours": 1,
+    "max_hours": 14,
+    "min_mints": 0,
+    "max_mints": 59
+  }
 }
