@@ -4,11 +4,16 @@ Cypress end-to-end test for Lemontech QA environment
 
 ## Getting Started
 
-1. git clone https://github.com/Iranid/cypress-test.git
-2. cd cypress-test
-3. yarn install
-4. For open Cypress UI: yarn open
-5. For running test on command line: yarn test
+``` bash
+git clone https://github.com/Iranid/cypress-test.git
+cd cypress-test
+yarn install
+```
+
+## Running the app
+
+- To open Cypress UI: `yarn open`
+- Top run headless tests (on command line): `yarn test`
 
 ## Dependencies
 
