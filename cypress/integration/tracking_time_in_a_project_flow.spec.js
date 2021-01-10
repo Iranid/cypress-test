@@ -3,15 +3,19 @@
 const {LOGIN} = require('./selectors/login');
 const {MENU} = require('./selectors/menu');
 const {CLIENT} = require('./selectors/client');
+const {PROJECT} = require('./selectors/project');
+const {CALENDAR} = require('./selectors/calendar');
+const {REPORT} = require('./selectors/report');
 
 
 describe('Tracking time in a Project', () => {
 
   context('Valid User', () => {
-    let app
-    let user
+    let app, user, client
 
     beforeEach(() => {
+
+      // Load fixtures
       cy.fixture('app').then((data) => {
         app = data
       })
@@ -19,9 +23,13 @@ describe('Tracking time in a Project', () => {
       cy.fixture('user').then((data) => {
         user = data
       })
+
+      cy.fixture('client').then((data) => {
+        client = data
+      })
     })
 
-    describe('The login page', () => {
+    context('The login page', () => {
 
       it('Login is succesful when the email and password are valid', () => {
         cy.visit(app.login_url)
@@ -36,7 +44,7 @@ describe('Tracking time in a Project', () => {
       })
     })
 
-    describe('The Client page', () => {
+    context('The Client page', () => {
 
       it('Validate client "Lemontech" exists', () => {
 
@@ -45,7 +53,32 @@ describe('Tracking time in a Project', () => {
         cy.get(MENU.ADMIN_OPTION_CLIENT).click()
         cy.url().should('include', app.clients_section_path)
 
+        // Search for client
+        cy.get(CLIENT.SEARCH_INPUT)
+          .type((`${client.name}{enter}`))
 
+        // Check for the correct client on list
+        cy.get(CLIENT.CLIENTS_TABLE)
+          .should('be.visible')
+          .each(($el, index, $list) => {
+
+            cy.wrap($el)
+              .find(CLIENT.CLIENT_TDATA)
+              .eq(0)
+              .then(($name) => {
+
+                if ($name.text() == client.name) {
+
+                  cy.wrap($name)
+                    .contains(client.name)
+
+                  cy.wrap($el)
+                    .find(CLIENT.CLIENT_TDATA)
+                    .eq(2)
+                    .contains(client.code)
+                }
+              })
+          })
       })
     })
   })
